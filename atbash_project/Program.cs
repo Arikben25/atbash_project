@@ -11,7 +11,7 @@ namespace atbash_project
 {
     internal class Program
     {
-        static string Search_for_suspicious_words(string mesege, Array arr)
+        static void Search_for_suspicious_words(string mesege, Array arr)
         {
             String[] new_mesege = mesege.Split(' ');
             List<string> wors_s_is_in = new List<string>();
@@ -28,15 +28,10 @@ namespace atbash_project
                     wors_s_is_in.Add(word_s);
                 }
             }
-            return $"the word is {wors_s_is_in}and is {my_counte}";
         }
       
         static void Main(string[] args)
         {
-            string mesege = "rere boom fdfd lfl boom boom";
-            
-            string[] list_of_suspicious_words = {"boom","rac"};
-            Console.WriteLine(Search_for_suspicious_words(mesege, list_of_suspicious_words));
 
 
         }
