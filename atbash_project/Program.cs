@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Reflection.Emit;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace atbash_project
@@ -32,24 +33,20 @@ namespace atbash_project
 
 
 
-        static void Search_for_suspicious_words(string mesege, Array arr)
+        static void Search_for_suspicious_words(string message, Array bad_words)
         {
-            String[] new_mesege = mesege.Split(' ');
-            List<string> wors_s_is_in = new List<string>();
-            bool t_o_f = false;
+            string CleanMessage = Regex.Replace(message, @"[^\w\s]", "");
+            String[] new_mesege = CleanMessage.Split(' ');
             int my_counte = 0;
-            foreach (string word_s in arr)
+            foreach (string word_s in bad_words)
             {
                 foreach (string woed_m in new_mesege)
                 {
                     if (woed_m == word_s) my_counte++;
                 }
-                if (t_o_f)
-                {
-                    wors_s_is_in.Add(word_s);
-                }
+               
             }
-            print_data_of_messege(mesege, my_counte);
+            print_data_of_messege(message, my_counte);
 
         }
 
