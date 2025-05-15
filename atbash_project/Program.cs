@@ -38,11 +38,11 @@ namespace atbash_project
             string CleanMessage = Regex.Replace(message, @"[^\w\s]", "");
             String[] new_mesege = CleanMessage.Split(' ');
             int my_counte = 0;
-            foreach (string word_s in bad_words)
+            foreach (string word_suspicious in bad_words)
             {
-                foreach (string woed_m in new_mesege)
+                foreach (string woed_message in new_mesege)
                 {
-                    if (woed_m == word_s) my_counte++;
+                    if (woed_message == word_suspicious) my_counte++;
                 }
                
             }
